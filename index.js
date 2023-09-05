@@ -23,7 +23,7 @@ fs.readFile(__dirname + '/dist/index.html', (result, data) => {
 //const $ = cheerio.load('<h2 class="title">Hello world</h2>');
 
 const app = express();
-
+console.log(process.env)
 //const root = `${__dirname}/static`
 const options = {
     target: process.env.VITE_API_URL, // target host
