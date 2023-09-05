@@ -8,7 +8,7 @@ const fs = require('fs');
 
 dotenv.config()
 
-fs.readFile(__dirname + '/dist/index.html', (result, data) => {
+fs.readFile('./dist/index.html', (result, data) => {
     const $ = cheerio.load(data.toString())
     if ($('head').find('base').length > 0) {
         $('head').remove('base')
@@ -17,7 +17,7 @@ fs.readFile(__dirname + '/dist/index.html', (result, data) => {
         $('head').append(`<base href="${process.env.VITE_BASE_URL ? process.env.VITE_BASE_URL : ""}"/>`)
     }
 
-    fs.writeFile(__dirname + '/dist/index.html', $.html(), (err) => { })
+    fs.writeFile('./dist/index.html', $.html(), (err) => { })
 
 })
 //const $ = cheerio.load('<h2 class="title">Hello world</h2>');
