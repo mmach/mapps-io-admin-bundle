@@ -9,6 +9,7 @@ const fs = require('fs');
 dotenv.config()
 
 fs.readFile('./dist/index.html', (result, data) => {
+    console.log('REPLACE BASE')
     const $ = cheerio.load(data.toString())
     if ($('head').find('base').length > 0) {
         $('head').remove('base')
